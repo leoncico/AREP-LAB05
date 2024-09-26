@@ -1,4 +1,4 @@
-package escuelaing.edu.co.crud;
+package escuelaing.edu.co.crud.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
