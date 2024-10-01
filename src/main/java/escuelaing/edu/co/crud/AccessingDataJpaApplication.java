@@ -22,9 +22,9 @@ public class AccessingDataJpaApplication {
   }
 
   @Bean
-  public CommandLineRunner demo(PropertyRepository propertyRepository) {
+  public CommandLineRunner demo(PropertyRepository propertyRepository, CustomerRepository repository) {
     return (args) -> {
-      // // save a few customers
+      // save a few customers
       // repository.save(new Customer("Jack", "Bauer"));
       // repository.save(new Customer("Chloe", "O'Brian"));
       // repository.save(new Customer("Kim", "Bauer"));
@@ -54,13 +54,13 @@ public class AccessingDataJpaApplication {
       // });
       // log.info("");
       
-      Property property1 = new Property("123 Main St", 250000, 120, "Casa familiar en una buena ubicación.");
-      Property property2 = new Property("456 Elm St", 300000, 150, "Amplia casa con jardín.");
-      Property property3 = new Property("789 Maple Ave", 200000, 80, "Departamento acogedor en el centro.");
+      // Property property1 = new Property("123 Main St", 250000, 120, "Casa familiar en una buena ubicación.");
+      // Property property2 = new Property("456 Elm St", 300000, 150, "Amplia casa con jardín.");
+      // Property property3 = new Property("789 Maple Ave", 200000, 80, "Departamento acogedor en el centro.");
 
-      propertyRepository.save(property1);
-      propertyRepository.save(property2);
-      propertyRepository.save(property3);
+      // propertyRepository.save(property1);
+      // propertyRepository.save(property2);
+      // propertyRepository.save(property3);
     };
   }
 

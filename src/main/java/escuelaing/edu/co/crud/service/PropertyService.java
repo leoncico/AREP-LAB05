@@ -1,9 +1,10 @@
-package escuelaing.edu.co.crud.services;
+package escuelaing.edu.co.crud.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import escuelaing.edu.co.crud.model.Property;
 import escuelaing.edu.co.crud.repository.PropertyRepository;
@@ -20,6 +21,10 @@ public class PropertyService{
     }
 
     public List<Property> getAllProperties(){
-        return propertyRepository.getAllProperties();
+        return propertyRepository.findAll();
+    }
+
+    public void createProperty(Property property){
+        propertyRepository.save(property);
     }
 }

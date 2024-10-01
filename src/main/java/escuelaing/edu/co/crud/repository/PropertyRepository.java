@@ -2,15 +2,15 @@ package escuelaing.edu.co.crud.repository;
 
 import java.util.List;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import escuelaing.edu.co.crud.model.Property;
 
 @Repository
-public interface PropertyRepository extends JpaRepository<Property, Long> {
+public interface PropertyRepository extends CrudRepository<Property, Long> {
 
-    public List<Property> getAllProperties();
+    List<Property> findAll();
         
     
 }
