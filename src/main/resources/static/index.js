@@ -1,18 +1,15 @@
 
 
 function openAddProperty() {
+    document.getElementById('propertyForm').reset();
     const form = document.getElementById('propertyForm');
-    if (form.style.display === 'none' || form.style.display === '') {
-        form.style.display = 'block';
-    } else {
-        form.style.display = 'none';
-    }
+    form.style.display = 'block';
+    form.onsubmit = addProperty;
 }
 
 document.getElementById('addButton').addEventListener('click', openAddProperty);
-
 async function addProperty(event) {
-    event.preventDefault();
+    event.preventDefault(); 
     const address = document.getElementById('address').value;
     const price = parseFloat(document.getElementById('price').value);
     const size = parseFloat(document.getElementById('size').value);
@@ -28,9 +25,7 @@ async function addProperty(event) {
     try {
         const response = await fetch('/properties/create', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(property)
         });
 
@@ -45,6 +40,7 @@ async function addProperty(event) {
         console.error('Error al realizar la petición:', error);
     }
 }
+
 
 
 let currentPage = 1;
@@ -107,18 +103,28 @@ function setupPagination(totalProperties) {
 
 function editProperty(id) {
     fetch(`/properties/${id}`)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al obtener la propiedad');
+            }
+            return response.json();
+        })
         .then(property => {
+            if (!property) {
+                throw new Error('No se encontró la propiedad');
+            }
             document.getElementById('address').value = property.address;
             document.getElementById('price').value = property.price;
             document.getElementById('size').value = property.size;
             document.getElementById('description').value = property.description;
-
             document.getElementById('propertyForm').style.display = 'block';
-
             document.getElementById('propertyForm').onsubmit = (event) => updateProperty(event, id);
+        })
+        .catch(error => {
+            console.error('Error al editar la propiedad:', error);
         });
 }
+
 
 async function updateProperty(event, id) {
     event.preventDefault();
