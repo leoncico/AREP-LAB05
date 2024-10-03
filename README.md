@@ -42,7 +42,7 @@ Luego ingresa desde un Browser a la dirección [localhost:8080]() para interactu
 Para probar la funcionalidad clickea el botón de Añadir Propiedad e ingresa los campos indicados
 ![](img/01.PNG)
 ![](img/02.PNG)
-También es posible eliminar y editar estos registros y adicionalmente se implementó la paginación para máximo 5 registros por pantalla
+También es posible eliminar y editar estos registros y adicionalmente se implementó la paginación para máximo 5 registros por página
 ![](img/04.PNG)
 ![](img/03.PNG)
 Adicionalmente se hizo un despliegue de la aplicación en AWS EC2, donde se tenian dos instancias, una para mysql y otra para la lógica y el front. Es explicado en el siguiente video: 
