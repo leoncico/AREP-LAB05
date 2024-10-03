@@ -124,7 +124,7 @@ classDiagram
     Property : is Entity
 ```
 ## Test
-Para ejecutar las pruebas ejecute el comando:
+Para ejecutar las pruebas es IMPORTANTE asegurarse de que aún siga en ejecución el contenedor, luego ejecute el comando:
 ```
 mvn test
 ```
