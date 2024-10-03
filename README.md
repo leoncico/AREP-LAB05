@@ -26,7 +26,7 @@ Seguido de esto, se ingresa a la carpeta resultante y se ejecutan los siguientes
 	```
 	docker-compose up -d
 	```
-* Para compilar el proyecto
+* A continuación espera unos minutos hasta que la base de datos inicie correctamente y luego compila el proyecto
 	```
 	mvn clean install
 	```
